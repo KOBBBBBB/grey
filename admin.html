@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pregled upita — Comfort Lukić Stil</title>
+    <meta name="description" content="Demo pregled zahtjeva za ponudu." />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237a4f35'/%3E%3Cpath d='M15 38h34v9H15zM20 25h24c3 0 5 2 5 5v8H15v-8c0-3 2-5 5-5z' fill='%23f5efe8'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <a class="brand" href="index.html"
+        ><span>Comfort</span><strong>Lukić Stil</strong></a
+      >
+      <p>Pregled upita</p>
+      <a class="back-link" href="index.html">← Nazad na sajt</a>
+    </header>
+    <main class="admin-main">
+      <section class="admin-heading">
+        <div>
+          <p class="eyebrow">Demo administracija</p>
+          <h1>Upiti kupaca</h1>
+          <p>Pregled zahtjeva za ponudu poslatih putem sajta.</p>
+        </div>
+      </section>
+      <section class="stats" aria-label="Sažetak upita">
+        <article>
+          <span>Novi upiti</span><strong id="new-count">0</strong>
+        </article>
+        <article>
+          <span>Ukupno upita</span><strong id="total-count">0</strong>
+        </article>
+        <article><span>Danas</span><strong id="today-count">0</strong></article>
+      </section>
+      <section class="inquiries-panel" aria-labelledby="list-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Pristigli zahtjevi</p>
+            <h2 id="list-title">Lista upita</h2>
+          </div>
+          <label class="status-filter"
+            >Status<select id="status-filter">
+              <option value="Svi">Svi</option>
+              <option value="Novi">Novi</option>
+              <option value="Kontaktiran">Kontaktiran</option>
+              <option value="Arhiviran">Arhiviran</option>
+            </select></label
+          >
+        </div>
+        <div class="inquiry-table-wrap">
+          <table class="inquiry-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Kupac</th>
+                <th>Telefon</th>
+                <th>Šta želi</th>
+                <th>Datum</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="inquiry-list"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>
+          <div>⌁</div>
+          <h3>Još nema pristiglih upita.</h3>
+          <p>
+            Popunite formu na sajtu kako biste vidjeli kako novi zahtjev izgleda
+            ovdje.
+          </p>
+          <a class="button" href="index.html#upit">Idi na formu</a>
+        </div>
+      </section>
+    </main>
+    <dialog class="detail-dialog" id="detail-dialog">
+      <button class="detail-close" type="button" aria-label="Zatvori detalje">
+        ×
+      </button>
+      <div id="detail-content"></div>
+    </dialog>
+    <script src="admin.js"></script>
+  </body>
+</html>
