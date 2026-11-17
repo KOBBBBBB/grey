@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Sunčev sistem</title>
+    <meta
+      name="description"
+      content="Interaktivna animacija Sunčevog sistema: kliknite na planete, zumirajte, ubrzajte vreme i otkrijte zanimljivosti."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#04050d" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2304050d'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23ffb454'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23ffffff55' stroke-width='2'/%3E%3Ccircle cx='54' cy='32' r='4' fill='%236fb7ff'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="space" aria-label="Animirani prikaz Sunčevog sistema" role="img"></canvas>
+
+    <header class="hud hud-top">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Sunčev <strong>sistem</strong></span>
+      </div>
+
+      <div class="controls" role="group" aria-label="Kontrole simulacije">
+        <button id="btn-play" class="icon-btn" type="button" aria-label="Pauziraj" aria-pressed="false" title="Pauza / nastavi (razmaknica)">
+          <svg class="i-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+          <svg class="i-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z" /></svg>
+        </button>
+        <label class="speed">
+          <span>Brzina</span>
+          <input id="speed" type="range" min="0" max="8" step="0.25" value="1" />
+          <output id="speed-out" for="speed">1×</output>
+        </label>
+        <button id="btn-orbits" class="toggle" type="button" aria-pressed="true">Orbite</button>
+        <button id="btn-labels" class="toggle" type="button" aria-pressed="true">Nazivi</button>
+        <button id="btn-reset" class="toggle" type="button">Ceo sistem</button>
+      </div>
+    </header>
+
+    <aside id="info" class="panel" aria-hidden="true" aria-live="polite">
+      <button id="info-close" class="panel-close" type="button" aria-label="Zatvori panel">×</button>
+      <div class="orb" id="info-orb" aria-hidden="true"></div>
+      <p class="kicker" id="info-kicker"></p>
+      <h2 id="info-name"></h2>
+      <p class="desc" id="info-desc"></p>
+      <dl class="stats" id="info-stats"></dl>
+      <div class="fun">
+        <span>Da li ste znali?</span>
+        <p id="info-fun"></p>
+      </div>
+    </aside>
+
+    <nav id="chips" class="hud hud-bottom" aria-label="Izaberite nebesko telo"></nav>
+    <p class="hint" id="hint">Prevuci za pomeranje · točkić ili štipanje za zum · klikni na planetu</p>
+
+    <section id="intro" class="intro" aria-labelledby="intro-title">
+      <div class="intro-inner">
+        <p class="eyebrow">Interaktivna simulacija</p>
+        <h1 id="intro-title">Sunčev <span>sistem</span></h1>
+        <p class="lead">
+          Osam planeta, jedna zvezda, pojas asteroida i kometa — sve u pokretu. Klikni na bilo koje telo da mu
+          priđeš bliže.
+        </p>
+        <button id="start" class="cta" type="button">Kreni putovanje</button>
+      </div>
+    </section>
+
+    <noscript><p class="noscript">Za ovu animaciju je potreban JavaScript.</p></noscript>
+    <script src="app.js"></script>
+  </body>
+</html>
